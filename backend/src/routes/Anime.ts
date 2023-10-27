@@ -9,3 +9,5 @@ routes.post("/search", AnimeApi.SearchAnime)
 routes.get("/topAnime", AnimeApi.TopAnime)
 
 routes.get("/recent", AnimeApi.RecentReleases)
+
+routes.post("/info", AnimeApi.AnimeInfo)

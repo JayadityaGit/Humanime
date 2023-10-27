@@ -89,3 +89,31 @@ export const RecentReleases: RequestHandler =async (req, res, next) => {
     }
 
 }
+
+
+
+export const AnimeInfo: RequestHandler =async (req, res, next) => {
+
+    try {
+
+        const animeId = req.body.id;
+
+        if(!animeId){
+            throw createHttpError(400, "animeId is missing !")
+        }
+        
+        const response = await fetch(env.Anime_Search+"/info/"+animeId, {method:"GET"});
+
+        if(!response){
+            throw createHttpError(500, "server could not fetch the anime info")
+        }
+
+        const info = await response.json();
+
+        res.status(200).json(info)
+
+    } catch (error) {
+        next(error)
+    }
+    
+}
