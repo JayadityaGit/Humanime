@@ -91,6 +91,31 @@ export const RecentReleases: RequestHandler =async (req, res, next) => {
 }
 
 
+export const GetServers: RequestHandler =async (req, res, next) => {
+    try {
+
+        const episodeId = req.body.epId;
+
+        if(!episodeId){
+            throw createHttpError(400, "epId is missing or incorrect")
+        }
+
+        const response = await fetch(env.Anime_Search+"/servers/"+episodeId, {method:"GET"})
+
+        if(!response){
+            throw createHttpError(500, "server could not fetch the anime servers")
+        }
+
+        const servers = await response.json();
+
+        res.status(200).json(servers)
+        
+    } catch (error) {
+        next(error)
+    }
+}
+
+
 
 export const AnimeInfo: RequestHandler =async (req, res, next) => {
 
