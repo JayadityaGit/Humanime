@@ -142,3 +142,37 @@ export const AnimeInfo: RequestHandler =async (req, res, next) => {
     }
     
 }
+
+
+
+export const GetStreaming: RequestHandler =async (req, res , next) => {
+    try {
+
+        const episodeId = req.body.epId;
+
+        if(!episodeId){
+            throw createHttpError(400, "episodeId is ivalid")
+        }
+
+        const serverName = req.body.serverName;
+
+        if(!serverName){
+            throw createHttpError(400, "servername does not exist")
+        }
+
+
+        const response = await fetch(env.Anime_Search+"/watch/"+episodeId+"?server="+serverName, {method: "GET"})
+
+        if(!response){
+            throw createHttpError(400, "server could not fetch the streaming links")
+        }
+
+        const streams = await response.json();
+
+
+        res.status(200).json(streams)
+        
+    } catch (error) {
+        next(error)
+    }
+}
