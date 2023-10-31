@@ -1,6 +1,6 @@
 import express, { NextFunction, Request, Response } from "express"
 import morgan from "morgan";
-import { routes } from "./routes/Anime";
+import { routes } from "./routes/AnimeRoutes";
 import createHttpError, {isHttpError} from "http-errors";
 
 export const app = express();

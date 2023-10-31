@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import * as AnimeApi from "../controller/Anime"
+import * as AnimeApi from "../controller/AnimeController"
 
 export const routes = Router();
 
