@@ -3,6 +3,7 @@ import {useLocation} from "react-router-dom"
 import { SearchAnimeModel } from "../Model/SearchAnimeModel"
 import { getAnimeInfo } from "../Network/AnimeApi"
 import {useNavigate} from "react-router-dom"
+import { Card, Col, Container, Row } from "react-bootstrap"
 
 const Results = () => {
 
@@ -21,11 +22,20 @@ const Results = () => {
     
 
   return (
-    <div>{
+    <Container>
+        
+        
+        <Row className="justify-content-center">
+        
+        {
         
         results.map((anime)=>{
+
+
            return(
-            <button key={anime.id} onClick={async()=>{
+
+            <Col key={anime.id} xs="auto">
+            <Card text="white" bg="dark" style={{ width: '18rem' }}  onClick={async()=>{
                 try {
                     
 
@@ -38,11 +48,33 @@ const Results = () => {
 
                     alert(error)
                 }
-            }}>{anime.title}</button>
+            }}>
+
+
+             <Card.Img variant="top" src={anime.image}/>
+
+             <Card.Body>
+
+             <Card.Title>{anime.title}</Card.Title>
+
+             </Card.Body>
+         
+
+
+
+
+            </Card>
+
+            </Col>
            )
         })
+       
+        }
         
-        }</div>
+        
+        </Row>
+        
+        </Container>
   )
 }
 

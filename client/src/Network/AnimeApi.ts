@@ -17,6 +17,17 @@ async function getErrorOrAnime(input: RequestInfo, init: RequestInit) {
     
 }
 
+
+export async function getTopAnime() {
+
+    const response = await getErrorOrAnime("/anime/topAnime", {method: "GET"})
+
+
+    return response;
+    
+}
+
+
 export async function getStreams(episodeId: string) {
     const response = await getErrorOrAnime("/anime/stream", {
         method: "POST",

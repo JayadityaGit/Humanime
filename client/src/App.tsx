@@ -2,12 +2,15 @@ import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Home from "./Pages/Home"
 import Results from "./Pages/Results"
 import Watch from "./Pages/Watch"
+import NavbarBoot from "./Components/NavbarBoot"
 
 const App = () => {
   return (    
   
   <BrowserRouter>
     
+    <NavbarBoot/>
+
     <Routes>
 
 

@@ -1,41 +1,45 @@
-import { useState } from "react"
-import { getSearchResults } from "../Network/AnimeApi"
-import {useNavigate} from "react-router-dom"
+
+import { useEffect, useState } from "react"
+import TopAnime from "../Components/TopAnime"
+import { topAnimeModel } from "../Model/TopAnimeModel"
+import { getTopAnime } from "../Network/AnimeApi"
+
 
 
 
 
 const Home = () => {
 
-  const [inputValue, setInputValue] = useState("")
+  const [top, setTop] = useState<topAnimeModel[]>([])
 
- 
 
-  const navigate = useNavigate()
+  useEffect(() => {
+    async function loadTopAnime() {
 
+        try {
+          
+
+          const anime = await getTopAnime();
+
+          setTop(anime.results)
+
+         
+
+        } catch (error) {
+          console.error(error);
+
+          alert(error)
+        }
+      
+    }
+
+    loadTopAnime()
+  }, [])
+  
 
   return (
     <div>
-
-         <input onChange={(event)=>{setInputValue(event.target.value)}} type="text" />
-
-         <button onClick={
-          async () => {
-            try {
-
-             const searchResults = await getSearchResults(inputValue);
-           
-
-             navigate("/results", {state: {search: searchResults.results}})
-              
-            } catch (error) {
-              console.error(error)
-
-              alert(error)
-            }
-          }
-         }>Search</button>
-
+      <TopAnime anime = {top}/>
     </div>
   )
 }
