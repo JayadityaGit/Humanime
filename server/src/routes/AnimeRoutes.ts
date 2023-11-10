@@ -17,5 +17,5 @@ routes.post("/server", AnimeApi.GetServers)
 
 routes.post("/stream", AnimeApi.GetStreaming)
 
-routes.post("/stream", AnimeApi.AnimeStreams)
+
 

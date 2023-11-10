@@ -1,6 +1,7 @@
 import { StreamModel } from "../Model/StreamArray"
 import {MediaPlayer, MediaProvider} from "@vidstack/react"
 import {defaultLayoutIcons, DefaultVideoLayout} from "@vidstack/react/player/layouts/default"
+import { Container } from "react-bootstrap"
 
 
 interface VideoPlayerProps{
@@ -15,7 +16,7 @@ const VideoPlayer = ({episodeSources}: VideoPlayerProps) => {
  
 
   return (
-    <div>
+    <Container>
 
 
 {
@@ -34,7 +35,7 @@ const VideoPlayer = ({episodeSources}: VideoPlayerProps) => {
 
 
 
-    </div>
+    </Container>
   )
 }
 

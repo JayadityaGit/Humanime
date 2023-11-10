@@ -145,24 +145,19 @@ export const AnimeInfo: RequestHandler =async (req, res, next) => {
 
 
 
-<<<<<<< HEAD:backend/src/controller/Anime.ts
 export const GetStreaming: RequestHandler =async (req, res , next) => {
-=======
-export const AnimeStreams: RequestHandler =async (req, res, next) => {
->>>>>>> videoPlay:server/src/controller/AnimeController.ts
     try {
 
         const episodeId = req.body.epId;
 
         if(!episodeId){
-<<<<<<< HEAD:backend/src/controller/Anime.ts
             throw createHttpError(400, "episodeId is ivalid")
         }
 
-        const serverName = req.body.serverName;
+        let serverName = req.body.serverName;
 
         if(!serverName){
-            throw createHttpError(400, "servername does not exist")
+            serverName= "gogocdn";
         }
 
 
@@ -176,18 +171,6 @@ export const AnimeStreams: RequestHandler =async (req, res, next) => {
 
 
         res.status(200).json(streams)
-=======
-            throw createHttpError(400, "episodeId is missing !!!!")
-        }
-
-        const response = await fetch(env.Anime_Search+"/watch/"+episodeId, {method: "GET"})
-
-
-        const animeStreamLinks = await response.json();
-
-
-        res.status(200).json(animeStreamLinks)
->>>>>>> videoPlay:server/src/controller/AnimeController.ts
         
     } catch (error) {
         next(error)
