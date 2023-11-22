@@ -4,6 +4,7 @@ import Results from "./Pages/Results"
 import Watch from "./Pages/Watch"
 import NavbarBoot from "./Components/NavbarBoot"
 
+
 const App = () => {
   return (    
   
@@ -20,6 +21,7 @@ const App = () => {
 
         <Route path="/watch" element={<Watch/>}/>
 
+        
 
 
     </Routes>

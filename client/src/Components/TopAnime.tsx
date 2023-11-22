@@ -1,5 +1,5 @@
 
-import { Card, Col, Container, Row } from "react-bootstrap"
+import {  Card, Col, Container, Row } from "react-bootstrap"
 import { topAnimeModel } from "../Model/TopAnimeModel"
 import { getAnimeInfo } from "../Network/AnimeApi"
 import { useNavigate } from "react-router-dom"
@@ -11,6 +11,8 @@ interface topAnimeProps{
 const TopAnime = ({anime}: topAnimeProps) => {
 
     const navigate = useNavigate();
+
+
 
     
   return (
@@ -47,7 +49,7 @@ const TopAnime = ({anime}: topAnimeProps) => {
                 }} text="white" bg="dark"   style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={topAnime.image}/>
 
-                    <Card.Body>
+                    <Card.Body> 
                         <Card.Title>{topAnime.title}</Card.Title>
                     </Card.Body>
                 </Card>

@@ -49,8 +49,12 @@ export const TopAnime: RequestHandler =async (req, res, next) => {
     
     try {
         //throw createHttpError(500, "HEllo there am i visible or causing u problems lol")
+
+        
         
         const response = await fetch(env.Anime_Search+"/top-airing", {method:"GET"})
+
+        
 
         if(!response){
             throw createHttpError(500, "server could not fetch top airing anime")
@@ -154,14 +158,10 @@ export const GetStreaming: RequestHandler =async (req, res , next) => {
             throw createHttpError(400, "episodeId is ivalid")
         }
 
-        let serverName = req.body.serverName;
 
-        if(!serverName){
-            serverName= "gogocdn";
-        }
+        const response = await fetch(env.Anime_Search+"/watch/"+episodeId, {method: "GET"})
 
-
-        const response = await fetch(env.Anime_Search+"/watch/"+episodeId+"?server="+serverName, {method: "GET"})
+        
 
         if(!response){
             throw createHttpError(400, "server could not fetch the streaming links")

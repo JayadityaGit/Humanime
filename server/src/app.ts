@@ -24,7 +24,7 @@ app.use((error: unknown, req: Request, res: Response, next: NextFunction)=>{
 
     console.error(error)
 
-    let errorMessage = "an unknown error occured"
+    let errorMessage = "your internet might not be stable or my server sucks !!!"
     
     let statusCode = 500
 

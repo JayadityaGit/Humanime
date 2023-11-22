@@ -44,7 +44,7 @@ const NavbarBoot = () => {
             navbarScroll
           >
             
-            <Nav.Link  >Favorites</Nav.Link>
+            
           </Nav>
 
         <input value={inputValue} onChange={(event)=>{setInputValue(event.target.value)}}  onKeyDown={async(event)=>{
